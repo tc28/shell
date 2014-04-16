@@ -1,0 +1,30 @@
+This project is composed of the following functions..
+Please consult the in-line comments for input/output details.
+
+install_handler: install a specific signal handler
+sigint_handler: handles SIGINT
+sigstp_handler: handles SIGSTP
+sigquit_handler: handles SIGQUIT
+sigchld_handler: handles SIGCHLD and does job management according to the signal received
+install: calls install_handler and installs all the singal handlers
+parse_args: parses valid arguments in a user-input string and saves them in a pointer passed in
+
+
+resume_in_bg: resumes running a specified job in bg, called in execute_args()
+resume_in_fg: resumes running a specified job in fg, called in execute_args()
+run_in_bg: runs a specified command with arguments in bg, called in execute_args()
+run_in_fg: runs a specified command with arguments in fg, called in execute_args()
+execute_args: execute the arguments with redirections, called in main()
+main() mainly implements the parsing algorithms
+
+No bugs found yet.
+tester and tester2 are two short programs written by me, which conveniently test the shell. 
+run 
+gcc -o tester tester.c 
+to compile
+-----------
+I noticed that waitpid(-1, *, *) is a more convenient and generic way to find 
+the state-changing process. Nevertheless, itś NOT specified in the assignment, 
+and changing it requires so much work due to the fact the I completed my implementation
+several days before I got to know this trick from the TAś. Thus, please don´t let me lose points 
+due to this. 
